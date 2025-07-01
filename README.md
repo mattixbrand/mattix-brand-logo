@@ -45,7 +45,7 @@ A modern, animated brand identity system built with React, TypeScript, and cutti
 
 ### 🚀 **Modern Tech Stack**
 
-- React 18 with TypeScript
+- React 19 with TypeScript
 - Vite for blazing-fast development
 - Remix Icons for consistent iconography
 - Responsive design with glassmorphism effects
@@ -53,7 +53,7 @@ A modern, animated brand identity system built with React, TypeScript, and cutti
 
 ## 🎯 Live Demo
 
-Visit the live application: `http://localhost:5174`
+Visit the live application: `https://brand.mattixs.com`
 
 ### Available Routes:
 
