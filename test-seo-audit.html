@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Audit Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .audit-container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        button { background: #4FACFE; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; margin-bottom: 20px; }
+        button:hover { background: #3d8bfe; }
+        #results { border: 1px solid #ddd; border-radius: 6px; min-height: 100px; padding: 20px; margin-top: 20px; }
+        .score { font-size: 48px; font-weight: bold; text-align: center; margin: 20px 0; }
+        .score.good { color: #22c55e; }
+        .score.ok { color: #eab308; }
+        .score.bad { color: #ef4444; }
+    </style>
+</head>
+<body>
+    <div class="audit-container">
+        <h1>SEO Audit Tool</h1>
+        <p>Click the button below to run an SEO audit on the Download page:</p>
+        
+        <button onclick="runAudit()">Run SEO Audit on Download Page</button>
+        
+        <div id="results">
+            <p>Click the button to start the audit...</p>
+        </div>
+    </div>
+
+    <script>
+        async function runAudit() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Running audit on Download page...</p>';
+            
+            try {
+                // Open download page in a new window for testing
+                const downloadWindow = window.open('http://localhost:5173/download', '_blank');
+                
+                // Wait for the page to load
+                setTimeout(() => {
+                    if (downloadWindow && !downloadWindow.closed) {
+                        // Run audit script in the download page context
+                        downloadWindow.eval(`
+                            // Quick SEO audit function
+                            function quickSEOAudit() {
+                                const issues = [];
+                                const passed = [];
+                                let score = 100;
+                                
+                                // Check meta tags
+                                const title = document.querySelector('title');
+                                const description = document.querySelector('meta[name="description"]');
+                                const ogTitle = document.querySelector('meta[property="og:title"]');
+                                const ogDesc = document.querySelector('meta[property="og:description"]');
+                                const ogImage = document.querySelector('meta[property="og:image"]');
+                                const canonical = document.querySelector('link[rel="canonical"]');
+                                
+                                if (!title || !title.textContent.trim()) {
+                                    issues.push('Missing or empty title tag');
+                                    score -= 15;
+                                } else {
+                                    passed.push('Title tag present: "' + title.textContent + '"');
+                                }
+                                
+                                if (!description || !description.content?.trim()) {
+                                    issues.push('Missing or empty meta description');
+                                    score -= 15;
+                                } else {
+                                    passed.push('Meta description present (' + description.content.length + ' chars)');
+                                }
+                                
+                                if (!ogTitle || !ogDesc || !ogImage) {
+                                    issues.push('Incomplete Open Graph tags');
+                                    score -= 10;
+                                } else {
+                                    passed.push('Open Graph tags complete');
+                                }
+                                
+                                if (!canonical) {
+                                    issues.push('Missing canonical URL');
+                                    score -= 5;
+                                } else {
+                                    passed.push('Canonical URL present');
+                                }
+                                
+                                // Check structured data
+                                const structuredData = document.querySelectorAll('script[type="application/ld+json"]');
+                                if (structuredData.length === 0) {
+                                    issues.push('No structured data found');
+                                    score -= 10;
+                                } else {
+                                    passed.push('Structured data present (' + structuredData.length + ' scripts)');
+                                }
+                                
+                                // Check H1
+                                const h1 = document.querySelectorAll('h1');
+                                if (h1.length !== 1) {
+                                    issues.push('Should have exactly one H1 tag, found: ' + h1.length);
+                                    score -= 10;
+                                } else {
+                                    passed.push('H1 tag present: "' + h1[0].textContent + '"');
+                                }
+                                
+                                // Check content length
+                                const wordCount = document.body.textContent.trim().split(/\\s+/).length;
+                                if (wordCount < 300) {
+                                    issues.push('Content too short (' + wordCount + ' words)');
+                                    score -= 10;
+                                } else {
+                                    passed.push('Content length adequate (' + wordCount + ' words)');
+                                }
+                                
+                                // Check accessibility
+                                const skipLink = document.querySelector('a[href="#main-content"]');
+                                if (!skipLink) {
+                                    issues.push('No skip-to-main-content link found');
+                                    score -= 5;
+                                } else {
+                                    passed.push('Skip navigation link present');
+                                }
+                                
+                                return { score: Math.max(0, score), issues, passed };
+                            }
+                            
+                            const result = quickSEOAudit();
+                            window.opener.postMessage(result, '*');
+                        `);
+                        
+                        downloadWindow.close();
+                    }
+                }, 2000);
+                
+            } catch (error) {
+                resultsDiv.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+            }
+        }
+        
+        // Listen for audit results
+        window.addEventListener('message', function(event) {
+            if (event.data && typeof event.data.score === 'number') {
+                const result = event.data;
+                const resultsDiv = document.getElementById('results');
+                
+                let scoreClass = 'bad';
+                if (result.score >= 90) scoreClass = 'good';
+                else if (result.score >= 70) scoreClass = 'ok';
+                
+                let html = `
+                    <div class="score ${scoreClass}">${result.score}/100</div>
+                    <h3>Issues Found (${result.issues.length}):</h3>
+                    <ul>
+                        ${result.issues.map(issue => `<li style="color: red;">${issue}</li>`).join('')}
+                    </ul>
+                    <h3>Passed Checks (${result.passed.length}):</h3>
+                    <ul>
+                        ${result.passed.map(check => `<li style="color: green;">${check}</li>`).join('')}
+                    </ul>
+                `;
+                
+                resultsDiv.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

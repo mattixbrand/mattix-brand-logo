@@ -692,6 +692,25 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Skip to main content link for accessibility */
+.skip-to-main-content {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #4FACFE;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.skip-to-main-content:focus {
+  top: 6px;
+}
+
 .download-header {
   background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
   padding: 100px 0 60px;
@@ -702,6 +721,80 @@
   font-size: 3rem;
   margin: 30px 0 16px;
   font-weight: 600;
+}
+
+/* Introduction Section */
+.introduction-section {
+  padding: 60px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-content h2 {
+  font-size: 2.25rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #4FACFE;
+}
+
+.intro-content p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+}
+
+.intro-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Category Descriptions */
+.category-descriptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin: 60px 0 40px;
+}
+
+.category-desc {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.category-desc:hover {
+  transform: translateY(-4px);
+  border-color: rgba(79, 172, 254, 0.3);
+  box-shadow: 0 10px 30px rgba(79, 172, 254, 0.1);
+}
+
+.desc-icon {
+  font-size: 2.5rem;
+  color: #4FACFE;
+  margin-bottom: 20px;
+}
+
+.category-desc h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.category-desc p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .quick-download-section {

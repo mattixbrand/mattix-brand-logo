@@ -124,8 +124,37 @@ const DownloadPage: React.FC = () => {
 
   return (
     <>
-      <SEOHead pageKey="download" />
+      <SEOHead 
+        pageKey="download" 
+        customProps={{
+          schema: {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Download Mattix Brand Assets",
+            "description": "Download official Mattix brand assets including logos, color palettes, brand guidelines, and React components. All files are optimized and ready for commercial use.",
+            "url": "https://brand.mattixs.com/download",
+            "mainEntity": {
+              "@type": "SoftwareApplication",
+              "name": "Mattix Brand Kit",
+              "applicationCategory": "Design Tools",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          }
+        }}
+      />
       <div className="download-page gpu-accelerated">
+        {/* Skip to main content for accessibility */}
+        <a 
+          href="#main-content" 
+          className="skip-to-main-content"
+        >
+          Skip to main content
+        </a>
+        
         {/* Header */}
         <header className="download-header">
           <div className="container">
@@ -138,7 +167,33 @@ const DownloadPage: React.FC = () => {
         </header>
 
         {/* Main Content */}
-        <main className="download-main">
+        <main className="download-main" id="main-content">
+          {/* Introduction Section */}
+          <section className="introduction-section">
+            <div className="container">
+              <div className="intro-content">
+                <h2>Professional Brand Assets for Every Need</h2>
+                <p>
+                  Welcome to the comprehensive Mattix Brand asset library. Whether you're a designer, developer, 
+                  or marketing professional, you'll find everything you need to implement our brand consistently 
+                  across all your projects. Our assets are meticulously crafted, thoroughly tested, and optimized 
+                  for both digital and print applications.
+                </p>
+                <p>
+                  Each download includes multiple formats and sizes to ensure compatibility with your workflow. 
+                  From scalable vector graphics for high-resolution displays to optimized web formats for fast 
+                  loading times, we've got you covered. All assets follow our brand guidelines and maintain 
+                  the highest quality standards.
+                </p>
+                <p>
+                  Our brand kit is regularly updated with new assets and improvements based on user feedback 
+                  and evolving design trends. We provide comprehensive documentation and usage guidelines to 
+                  help you implement our brand effectively while maintaining consistency across all touchpoints.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Quick Download Section */}
           <section className="quick-download-section">
             <div className="container">
@@ -174,7 +229,38 @@ const DownloadPage: React.FC = () => {
             <div className="container">
               <div className="section-header">
                 <h2>Browse by Category</h2>
-                <p>Choose what you need for your specific project requirements</p>
+                <p>
+                  Choose what you need for your specific project requirements. Each category contains 
+                  carefully curated assets designed for different use cases and applications.
+                </p>
+              </div>
+
+              {/* Category Descriptions */}
+              <div className="category-descriptions">
+                <div className="category-desc">
+                  <RiImage2Line className="desc-icon" />
+                  <h3>Logo Files</h3>
+                  <p>
+                    High-quality logo files in multiple formats including SVG, PNG, and ICO. 
+                    Available in various sizes optimized for web, print, and mobile applications.
+                  </p>
+                </div>
+                <div className="category-desc">
+                  <RiPaletteLine className="desc-icon" />
+                  <h3>Brand Assets</h3>
+                  <p>
+                    Complete brand identity package including color palettes, typography guidelines, 
+                    and comprehensive brand documentation for consistent implementation.
+                  </p>
+                </div>
+                <div className="category-desc">
+                  <RiCodeLine className="desc-icon" />
+                  <h3>Code Examples</h3>
+                  <p>
+                    Ready-to-use React components, CSS animations, and implementation examples 
+                    to help developers integrate our brand seamlessly into their projects.
+                  </p>
+                </div>
               </div>
 
               <div className="category-filters">
@@ -294,7 +380,7 @@ const DownloadPage: React.FC = () => {
                   <div className="guideline">
                     <span className="guideline-icon info">i</span>
                     <div>
-                      <strong>Questions:</strong> Contact us at <a href="mailto:brand@mattixbrand.com">brand@mattixbrand.com</a>
+                      <strong>Questions:</strong> Contact us at <a href="mailto:brand@brand.mattixs.com">brand@brand.mattixs.com</a>
                     </div>
                   </div>
                 </div>

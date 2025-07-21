@@ -314,7 +314,7 @@ function auditContent(issues: SEOIssue[], passed: SEOCheck[], recommendations: S
   }
 
   // Internal links
-  const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href*="mattixbrand.com"]');
+  const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href*="brand.mattixs.com"]');
   if (internalLinks.length < 3) {
     recommendations.push({
       title: 'Add More Internal Links',

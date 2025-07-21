@@ -66,7 +66,7 @@ const siteRoutes: SitemapURL[] = [
  * @param routes - Array of routes with metadata
  * @returns XML sitemap string
  */
-export function generateSitemap(baseUrl: string = 'https://mattixbrand.com', routes: SitemapURL[] = siteRoutes): string {
+export function generateSitemap(baseUrl: string = 'https://brand.mattixs.com', routes: SitemapURL[] = siteRoutes): string {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -89,7 +89,7 @@ ${routes.map(route => `  <url>
  * Updates the sitemap file with current date
  * @param baseUrl - The base URL of the website
  */
-export function updateSitemap(baseUrl: string = 'https://mattixbrand.com'): void {
+export function updateSitemap(baseUrl: string = 'https://brand.mattixs.com'): void {
   const updatedRoutes = siteRoutes.map(route => ({
     ...route,
     lastmod: new Date().toISOString().split('T')[0]
@@ -198,7 +198,7 @@ export function getSEORecommendations(routes: SitemapURL[] = siteRoutes): string
  * @param baseUrl - The base URL of the website
  * @returns SEO report
  */
-export function generateSEOReport(baseUrl: string = 'https://mattixbrand.com'): {
+export function generateSEOReport(baseUrl: string = 'https://brand.mattixs.com'): {
   sitemap: string;
   validation: ReturnType<typeof validateSitemap>;
   recommendations: string[];

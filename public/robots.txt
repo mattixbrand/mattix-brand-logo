@@ -29,7 +29,7 @@ Allow: /*.css
 Allow: /*.js
 
 # Sitemap location
-Sitemap: https://mattixbrand.com/sitemap.xml
+Sitemap: https://brand.mattixs.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

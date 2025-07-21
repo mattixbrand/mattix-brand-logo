@@ -171,9 +171,9 @@ const AboutPage: React.FC = () => {
                 <span>Mattix Brand</span>
               </div>
               <div className="footer-links">
-                <a href="mailto:contact@mattixbrand.com" className="footer-link">
+                <a href="mailto:contact@brand.mattixs.com" className="footer-link">
                   <RiMailLine className="link-icon" />
-                  contact@mattixbrand.com
+                  contact@brand.mattixs.com
                 </a>
                 <a href="https://github.com/mattixbrand" className="footer-link" target="_blank" rel="noopener noreferrer">
                   <RiGithubLine className="link-icon" />

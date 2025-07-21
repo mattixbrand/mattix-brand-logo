@@ -15,17 +15,25 @@ export const SEOHead: React.FC<SEOComponentProps> = ({
 }) => {
   const metaTags = generateMetaTags(pageKey, customProps);
 
+  // Filter out empty meta tags
+  const validMetaTags = metaTags.meta.filter(meta => {
+    const content = meta.content;
+    return content && content.trim() !== '' && content !== 'undefined';
+  });
+
+  const validLinks = metaTags.link.filter(link => link.href && link.href !== 'undefined');
+
   return (
     <Helmet>
-      <title>{metaTags.title}</title>
+      <title>{metaTags.title || 'Mattix Brand Logo'}</title>
       
       {/* Meta tags */}
-      {metaTags.meta.map((meta, index) => (
+      {validMetaTags.map((meta, index) => (
         <meta key={index} {...meta} />
       ))}
       
       {/* Link tags */}
-      {metaTags.link.map((link, index) => (
+      {validLinks.map((link, index) => (
         <link 
           key={index} 
           {...link} 
@@ -81,14 +89,14 @@ export const EnterpriseLayout: React.FC<{
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Mattix Brand",
-              "url": "https://mattixbrand.com",
-              "logo": "https://mattixbrand.com/mattix-logo-medium.png",
+              "url": "https://brand.mattixs.com",
+              "logo": "https://brand.mattixs.com/mattix-logo-medium.png",
               "description": "Professional brand identity and logo design services",
               "foundingDate": "2024",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "email": "contact@mattixbrand.com"
+                "email": "contact@brand.mattixs.com"
               },
               "sameAs": [
                 "https://github.com/mattixbrand"
