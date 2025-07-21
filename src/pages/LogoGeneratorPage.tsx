@@ -8,6 +8,7 @@ import {
   downloadWebIcons,
   downloadBrandPackage,
 } from "../utils/logoExporter";
+import { trackGeneratorUsage } from "../utils/gtm";
 import {
   RiDownloadLine,
   RiSmartphoneLine,
@@ -125,6 +126,16 @@ const LogoGeneratorPage: React.FC = () => {
   const downloadAll = async (category: "app" | "web") => {
     try {
       const customImageUrl = useUploadedImage ? uploadedFileUrl : undefined;
+      
+      // Track generator usage
+      trackGeneratorUsage('batch_download', {
+        download_type: category,
+        logo_variant: logoVariant,
+        logo_type: logoType,
+        background_color: backgroundColor,
+        has_custom_image: !!customImageUrl
+      });
+
       if (category === "app") {
         await downloadAppIcons(
           backgroundColor,
@@ -150,6 +161,15 @@ const LogoGeneratorPage: React.FC = () => {
   const downloadCompletePackage = async () => {
     try {
       const customImageUrl = useUploadedImage ? uploadedFileUrl : undefined;
+      
+      // Track complete package download
+      trackGeneratorUsage('complete_package_download', {
+        logo_type: logoType,
+        text_variant: textVariant,
+        background_color: backgroundColor,
+        has_custom_image: !!customImageUrl
+      });
+
       await downloadBrandPackage(
         backgroundColor,
         logoType,

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MattixLogo from "../components/MattixLogo";
 import { ExportableLogo } from "../components/ExportableLogo";
 import { SEOHead } from "../components/SEOHead";
+import { trackNavigation } from "../utils/gtm";
 import {
   RiSparklingLine,
   RiSpeedLine,
@@ -12,6 +13,22 @@ import {
   RiPaletteLine,
   RiRocketLine,
 } from "@remixicon/react";
+
+// Wrapper component for tracking navigation
+const TrackedLink: React.FC<{
+  to: string;
+  className?: string;
+  children: React.ReactNode;
+  source?: string;
+}> = ({ to, className, children, source = "homepage" }) => (
+  <Link
+    to={to}
+    className={className}
+    onClick={() => trackNavigation(to, source)}
+  >
+    {children}
+  </Link>
+);
 
 const HomePage: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -44,17 +61,18 @@ const HomePage: React.FC = () => {
           </p>
 
           <div className="hero-actions">
-            <Link to="/logo" className="cta-button primary">
+            <TrackedLink to="/logo" className="cta-button primary" source="hero">
               Explore Logo Studio
-            </Link>
-            <Link to="/colors" className="cta-button secondary">
+            </TrackedLink>
+            <TrackedLink to="/colors" className="cta-button secondary" source="hero">
               Color System
-            </Link>
+            </TrackedLink>
             <a
               href="https://github.com/mattixbrand"
               className="cta-button secondary"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackNavigation("github", "hero")}
             >
               View on GitHub
             </a>
@@ -234,9 +252,9 @@ const HomePage: React.FC = () => {
           </p>
 
           <div className="cta-actions">
-            <Link to="/logo" className="cta-button primary large">
+            <TrackedLink to="/logo" className="cta-button primary large" source="cta_bottom">
               Get Started Now
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </section>

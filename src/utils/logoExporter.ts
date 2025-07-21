@@ -1,3 +1,5 @@
+import { trackLogoDownload } from './gtm';
+
 export interface LogoExportOptions {
   size: number;
   format: "png" | "svg" | "ico" | "pdf" | "jpg" | "jpeg" | "webp";
@@ -426,6 +428,9 @@ export class LogoExporter {
 
   async downloadLogo(options: LogoExportOptions): Promise<void> {
     const result = await this.exportLogo(options);
+
+    // Track download for analytics
+    trackLogoDownload(options.format, options.size, options.variant);
 
     // Create download link
     const link = document.createElement("a");

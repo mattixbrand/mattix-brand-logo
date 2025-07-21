@@ -7,6 +7,7 @@ import {
 } from "../contexts/NavigationContext";
 import { FloatingNav } from "../components/FloatingNav";
 import MattixLogo from "../components/MattixLogo";
+import { trackColorInteraction } from "../utils/gtm";
 import {
   RiEyeLine,
   RiCircleLine,
@@ -154,6 +155,9 @@ const ColorSystemContent: React.FC = () => {
     try {
       await navigator.clipboard.writeText(text);
       addToast(`✅ Copied ${type}!`, "success");
+
+      // Track color interaction for analytics
+      trackColorInteraction('copy_color', text);
 
       // Add visual feedback to the clicked element
       const activeElement = document.activeElement as HTMLElement;
