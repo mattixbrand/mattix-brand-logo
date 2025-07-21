@@ -57,6 +57,12 @@ const siteRoutes: SitemapURL[] = [
     lastmod: new Date().toISOString().split('T')[0],
     changefreq: 'monthly',
     priority: 0.6
+  },
+  {
+    loc: '/sitemap',
+    lastmod: new Date().toISOString().split('T')[0],
+    changefreq: 'monthly',
+    priority: 0.5
   }
 ];
 

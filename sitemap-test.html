@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap Test - Mattix Brand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 32px 64px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            text-align: center;
+            padding: 50px 40px 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            text-decoration: none;
+            color: #334155;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+        
+        .link-item:hover::before {
+            left: 100%;
+        }
+        
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(102, 126, 234, 0.15),
+                0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .icon {
+            font-size: 28px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            flex-shrink: 0;
+            position: relative;
+        }
+        
+        .icon::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        
+        .link-info {
+            flex: 1;
+        }
+        
+        .link-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        
+        .link-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            opacity: 0.8;
+        }
+        
+        .examples-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 -40px -40px;
+            padding: 40px;
+            color: white;
+            position: relative;
+        }
+        
+        .examples-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .example-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 300% 100%;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+        
+        .example-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .example-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .example-icon {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        
+        .example-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .example-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .example-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .example-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .header { padding: 30px 20px 20px; }
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.1rem; }
+            .content { padding: 20px; }
+            .links { grid-template-columns: 1fr; }
+            .examples-section { margin: 0 -20px -20px; padding: 30px 20px; }
+            .examples-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a67d8, #6b46c1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗺️ Sitemap Explorer</h1>
+            <p class="subtitle">Navigate our digital universe and discover how industry leaders structure their web presence</p>
+        </div>
+        
+        <div class="content">
+            <h2 class="section-title">
+                🚀 Quick Navigation
+            </h2>
+            
+            <div class="links">
+                <a href="/#/" class="link-item">
+                    <div class="icon">🏠</div>
+                    <div class="link-info">
+                        <div class="link-title">Home</div>
+                        <div class="link-desc">React application homepage</div>
+                    </div>
+                </a>
+                
+                <a href="/#/sitemap" class="link-item">
+                    <div class="icon">🗺️</div>
+                    <div class="link-info">
+                        <div class="link-title">Sitemap Page</div>
+                        <div class="link-desc">Interactive sitemap explorer</div>
+                    </div>
+                </a>
+                
+                <a href="/sitemap.xml" class="link-item" target="_blank">
+                    <div class="icon">📄</div>
+                    <div class="link-info">
+                        <div class="link-title">XML Sitemap</div>
+                        <div class="link-desc">Machine-readable sitemap</div>
+                    </div>
+                </a>
+                
+                <a href="/#/logo" class="link-item">
+                    <div class="icon">∞</div>
+                    <div class="link-info">
+                        <div class="link-title">Logo Studio</div>
+                        <div class="link-desc">Animated Mattix logo showcase</div>
+                    </div>
+                </a>
+                
+                <a href="/#/generator" class="link-item">
+                    <div class="icon">🎨</div>
+                    <div class="link-info">
+                        <div class="link-title">Logo Generator</div>
+                        <div class="link-desc">Create custom logo variations</div>
+                    </div>
+                </a>
+                
+                <a href="/#/colors" class="link-item">
+                    <div class="icon">�</div>
+                    <div class="link-info">
+                        <div class="link-title">Color System</div>
+                        <div class="link-desc">Brand color palette & guidelines</div>
+                    </div>
+                </a>
+                
+                <a href="/#/docs" class="link-item">
+                    <div class="icon">📚</div>
+                    <div class="link-info">
+                        <div class="link-title">Documentation</div>
+                        <div class="link-desc">Technical guides & API reference</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="examples-section">
+            <h2 class="section-title" style="color: white; margin-bottom: 10px;">
+                ✨ Learn from the Best
+            </h2>
+            <p style="opacity: 0.9; margin-bottom: 0;">Explore how industry leaders organize their digital architecture</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-icon">🍎</div>
+                        <h3 class="example-title">Apple</h3>
+                    </div>
+                    <p class="example-desc">Comprehensive sitemap covering products, support, and corporate pages with meticulous organization.</p>
+                    <a href="https://www.apple.com/sitemap.xml" target="_blank" class="example-link">
+                        View Sitemap <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-icon">🔍</div>
+                        <h3 class="example-title">Google</h3>
+                    </div>
+                    <p class="example-desc">Strategic sitemap index showcasing Google's massive web presence and service architecture.</p>
+                    <a href="https://www.google.com/sitemap.xml" target="_blank" class="example-link">
+                        View Sitemap <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-icon">🪟</div>
+                        <h3 class="example-title">Microsoft</h3>
+                    </div>
+                    <p class="example-desc">Enterprise-level sitemap demonstrating complex product ecosystem organization.</p>
+                    <a href="https://www.microsoft.com/sitemap.xml" target="_blank" class="example-link">
+                        View Sitemap <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-icon">📱</div>
+                        <h3 class="example-title">GitHub</h3>
+                    </div>
+                    <p class="example-desc">Developer-focused platform sitemap with clean, logical URL structure patterns.</p>
+                    <a href="https://github.com/sitemap.xml" target="_blank" class="example-link">
+                        View Sitemap <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+            
+            // Add stagger animation to link items
+            const linkItems = document.querySelectorAll('.link-item');
+            linkItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 200 + (index * 100));
+            });
+            
+            // Add stagger animation to example cards
+            const exampleCards = document.querySelectorAll('.example-card');
+            exampleCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 800 + (index * 150));
+            });
+            
+            // Track clicks for analytics
+            if (window.location.hash) {
+                console.log('🗺️ React route detected:', window.location.hash);
+            }
+            
+            // Add click tracking
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    console.log('🔗 Navigation:', this.href);
+                });
+            });
+        });
+        
+        // Add parallax effect on scroll
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const background = document.body;
+            background.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>

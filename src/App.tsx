@@ -8,6 +8,7 @@ import DocumentationPage from "./pages/DocumentationPage";
 import AboutPage from "./pages/AboutPage";
 import BrandGuidelinesPage from "./pages/BrandGuidelinesPage";
 import DownloadPage from "./pages/DownloadPage";
+import SitemapPage from "./pages/SitemapPage";
 import { PerformanceDebugger } from "./hooks/usePerformanceMonitor";
 import { gtmPageView, initializeGTM } from "./utils/gtm";
 
@@ -42,6 +43,7 @@ const App: React.FC = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/brand-guidelines" element={<BrandGuidelinesPage />} />
           <Route path="/download" element={<DownloadPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
         </Routes>
       </Router>
       

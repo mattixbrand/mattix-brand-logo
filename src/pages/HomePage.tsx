@@ -303,6 +303,7 @@ const HomePage: React.FC = () => {
                 <h4>Company</h4>
                 <div className="footer-links">
                   <Link to="/about">About</Link>
+                  <Link to="/sitemap">Sitemap</Link>
                   <a href="https://blog.mattixs.com" target="_blank" rel="noopener noreferrer">Blog</a>
                   <a href="https://career.mattixs.com" target="_blank" rel="noopener noreferrer">Careers</a>
                   <a href="https://contact.mattixs.com" target="_blank" rel="noopener noreferrer">Contact</a>
