@@ -9,6 +9,10 @@ import {
   RiPaletteLine,
   RiCheckLine,
   RiSparklingLine,
+  RiTwitterXLine,
+  RiDiscordLine,
+  RiLinkedinLine,
+  RiGithubLine,
 } from "@remixicon/react";
 
 const DownloadPage: React.FC = () => {
@@ -380,7 +384,7 @@ const DownloadPage: React.FC = () => {
                   <div className="guideline">
                     <span className="guideline-icon info">i</span>
                     <div>
-                      <strong>Questions:</strong> Contact us at <a href="mailto:brand@brand.mattixs.com">brand@brand.mattixs.com</a>
+                      <strong>Questions:</strong> Contact us at <a href="mailto:brand@brand.mattixs.com">brand@brand.mattixs.com</a> or <a href="https://support.mattixs.com" target="_blank" rel="noopener noreferrer">support.mattixs.com</a>
                     </div>
                   </div>
                 </div>
@@ -401,6 +405,18 @@ const DownloadPage: React.FC = () => {
                 <a href="/brand-guidelines">Brand Guidelines</a>
                 <a href="/docs">Documentation</a>
                 <a href="/about">About</a>
+                <a href="https://www.mattixs.com/twitter?origin=brand.mattixs.com" target="_blank" rel="noopener noreferrer">
+                  <RiTwitterXLine size={18} />
+                </a>
+                <a href="https://www.mattixs.com/discord?origin=brand.mattixs.com" target="_blank" rel="noopener noreferrer">
+                  <RiDiscordLine size={18} />
+                </a>
+                <a href="https://www.mattixs.com/linkedin?origin=brand.mattixs.com" target="_blank" rel="noopener noreferrer">
+                  <RiLinkedinLine size={18} />
+                </a>
+                <a href="https://github.com/mattixbrand" target="_blank" rel="noopener noreferrer">
+                  <RiGithubLine size={18} />
+                </a>
               </div>
             </div>
           </div>

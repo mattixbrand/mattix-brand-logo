@@ -275,29 +275,29 @@ const HomePage: React.FC = () => {
                   >
                     GitHub
                   </a>
-                  <a href="#tutorials">Tutorials</a>
-                  <a href="#support">Support</a>
-                  <a href="#community">Community</a>
+                  <a href="https://tutorial.mattixs.com" target="_blank" rel="noopener noreferrer">Tutorials</a>
+                  <a href="https://support.mattixs.com" target="_blank" rel="noopener noreferrer">Support</a>
+                  <a href="https://community.mattixs.com" target="_blank" rel="noopener noreferrer">Community</a>
                 </div>
               </div>
 
               <div className="footer-section">
                 <h4>Company</h4>
                 <div className="footer-links">
-                  <a href="#about">About</a>
-                  <a href="#blog">Blog</a>
-                  <a href="#careers">Careers</a>
-                  <a href="#contact">Contact</a>
+                  <Link to="/about">About</Link>
+                  <a href="https://blog.mattixs.com" target="_blank" rel="noopener noreferrer">Blog</a>
+                  <a href="https://career.mattixs.com" target="_blank" rel="noopener noreferrer">Careers</a>
+                  <a href="https://contact.mattixs.com" target="_blank" rel="noopener noreferrer">Contact</a>
                 </div>
               </div>
 
               <div className="footer-section">
                 <h4>Connect</h4>
                 <div className="footer-links">
-                  <a href="#twitter">Twitter</a>
-                  <a href="#discord">Discord</a>
-                  <a href="#linkedin">LinkedIn</a>
-                  <a href="#newsletter">Newsletter</a>
+                  <a href="https://www.mattixs.com/twitter?origin=brand.mattixs.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+                  <a href="https://www.mattixs.com/discord?origin=brand.mattixs.com" target="_blank" rel="noopener noreferrer">Discord</a>
+                  <a href="https://www.mattixs.com/linkedin?origin=brand.mattixs.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a href="https://www.mattixs.com/newsletter?origin=brand.mattixs.com" target="_blank" rel="noopener noreferrer">Newsletter</a>
                 </div>
               </div>
             </div>

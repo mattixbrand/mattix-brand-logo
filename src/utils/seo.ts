@@ -59,8 +59,10 @@ export const pageSEO: Record<string, SEOProps> = {
       logo: 'https://brand.mattixs.com/mattix-logo-medium.png',
       description: 'Professional brand identity and logo design services',
       sameAs: [
-        'https://github.com/mattixbrand',
-        'https://twitter.com/mattixbrand'
+        'https://www.mattixs.com/twitter?origin=brand.mattixs.com',
+        'https://www.mattixs.com/discord?origin=brand.mattixs.com',
+        'https://www.mattixs.com/linkedin?origin=brand.mattixs.com',
+        'https://github.com/mattixbrand'
       ]
     }
   },

@@ -55,6 +55,13 @@ A modern, animated brand identity system built with React, TypeScript, and cutti
 
 Visit the live application: `https://brand.mattixs.com`
 
+### Mattix Ecosystem:
+- **Main Site**: [www.mattixs.com](https://www.mattixs.com) - Hub for all Mattix services
+- **Brand Portal**: [brand.mattixs.com](https://brand.mattixs.com) - Brand assets and logo generator
+- **Support**: [support.mattixs.com](https://support.mattixs.com) - Help and documentation
+- **Community**: [community.mattixs.com](https://community.mattixs.com) - Join discussions
+- **API**: [api.mattixs.com](https://api.mattixs.com) - Developer resources
+
 ### Available Routes:
 
 - `/` - Home page with feature overview
@@ -62,6 +69,9 @@ Visit the live application: `https://brand.mattixs.com`
 - `/colors` - Color system documentation
 - `/generator` - Logo generation tool
 - `/docs` - Complete documentation
+- `/about` - About Mattix Brand
+- `/brand-guidelines` - Brand usage guidelines
+- `/download` - Download brand assets
 
 ## 🚀 Quick Start
 
@@ -535,7 +545,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email support@mattixs.com or create an issue in the GitHub repository.
+For support, email [support@mattixs.com](mailto:support@mattixs.com) or visit [support.mattixs.com](https://support.mattixs.com).
+
+### Community
+
+- **Twitter**: [www.mattixs.com/twitter](https://www.mattixs.com/twitter?origin=brand.mattixs.com)
+- **Discord**: [www.mattixs.com/discord](https://www.mattixs.com/discord?origin=brand.mattixs.com)
+- **LinkedIn**: [www.mattixs.com/linkedin](https://www.mattixs.com/linkedin?origin=brand.mattixs.com)
+- **Newsletter**: [www.mattixs.com/newsletter](https://www.mattixs.com/newsletter?origin=brand.mattixs.com)
+
+Create an issue in the GitHub repository for bug reports and feature requests.
 
 ---
 

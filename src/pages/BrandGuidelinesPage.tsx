@@ -337,7 +337,7 @@ const BrandGuidelinesPage: React.FC = () => {
         {/* Footer */}
         <footer className="guidelines-footer">
           <div className="container">
-            <p>For questions about brand usage, please contact us at <a href="mailto:brand@brand.mattixs.com">brand@brand.mattixs.com</a></p>
+            <p>For questions about brand usage, please contact us at <a href="mailto:brand@brand.mattixs.com">brand@brand.mattixs.com</a> or visit our support portal at <a href="https://support.mattixs.com" target="_blank" rel="noopener noreferrer">support.mattixs.com</a></p>
           </div>
         </footer>
       </div>

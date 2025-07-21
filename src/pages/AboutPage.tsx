@@ -9,6 +9,9 @@ import {
   RiRocketLine,
   RiGithubLine,
   RiMailLine,
+  RiTwitterXLine,
+  RiDiscordLine,
+  RiLinkedinLine,
 } from "@remixicon/react";
 
 const AboutPage: React.FC = () => {
@@ -174,6 +177,18 @@ const AboutPage: React.FC = () => {
                 <a href="mailto:contact@brand.mattixs.com" className="footer-link">
                   <RiMailLine className="link-icon" />
                   contact@brand.mattixs.com
+                </a>
+                <a href="https://www.mattixs.com/twitter?origin=brand.mattixs.com" className="footer-link" target="_blank" rel="noopener noreferrer">
+                  <RiTwitterXLine className="link-icon" />
+                  Twitter
+                </a>
+                <a href="https://www.mattixs.com/discord?origin=brand.mattixs.com" className="footer-link" target="_blank" rel="noopener noreferrer">
+                  <RiDiscordLine className="link-icon" />
+                  Discord
+                </a>
+                <a href="https://www.mattixs.com/linkedin?origin=brand.mattixs.com" className="footer-link" target="_blank" rel="noopener noreferrer">
+                  <RiLinkedinLine className="link-icon" />
+                  LinkedIn
                 </a>
                 <a href="https://github.com/mattixbrand" className="footer-link" target="_blank" rel="noopener noreferrer">
                   <RiGithubLine className="link-icon" />

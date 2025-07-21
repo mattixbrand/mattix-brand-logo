@@ -99,6 +99,9 @@ export const EnterpriseLayout: React.FC<{
                 "email": "contact@brand.mattixs.com"
               },
               "sameAs": [
+                "https://www.mattixs.com/twitter?origin=brand.mattixs.com",
+                "https://www.mattixs.com/discord?origin=brand.mattixs.com",
+                "https://www.mattixs.com/linkedin?origin=brand.mattixs.com",
                 "https://github.com/mattixbrand"
               ]
             })
