@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "../components/SEOHead";
 import {
   NavigationProvider,
   useNavigation,
@@ -169,7 +170,9 @@ const ColorSystemContent: React.FC = () => {
   };
 
   return (
-    <div className="color-system-page">
+    <>
+      <SEOHead pageKey="colors" />
+      <div className="color-system-page">
       <FloatingNav sections={navSections} />
 
       {/* Header */}
@@ -2734,6 +2737,7 @@ module.exports = {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

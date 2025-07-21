@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SEOHead } from "../components/SEOHead";
 import MattixLogo, { InfinityLoader } from "../components/MattixLogo";
 import { DownloadManager } from "../components/DownloadManager";
 import { CodePreview } from "../components/CodePreview";
@@ -126,7 +127,9 @@ export default LoadingComponent;`;
   };
 
   return (
-    <div className="app logo-page-optimized gpu-accelerated">
+    <>
+      <SEOHead pageKey="logo" />
+      <div className="app logo-page-optimized gpu-accelerated">
       {/* Modern header with clean typography */}
       <header className="page-header">
         <h1 className="page-title gpu-accelerated">
@@ -245,6 +248,7 @@ export default LoadingComponent;`;
         ))}
       </div>
     </div>
+    </>
   );
 };
 

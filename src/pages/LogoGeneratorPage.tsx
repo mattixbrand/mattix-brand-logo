@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "../components/SEOHead";
 import { ExportableLogo } from "../components/ExportableLogo";
 import {
   LogoExporter,
@@ -213,7 +214,9 @@ const LogoGeneratorPage: React.FC = () => {
   };
 
   return (
-    <div className="logo-generator-page">
+    <>
+      <SEOHead pageKey="generator" />
+      <div className="logo-generator-page">
       {/* Header */}
       <header className="generator-header">
         <div className="header-content">
@@ -759,6 +762,7 @@ const LogoGeneratorPage: React.FC = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

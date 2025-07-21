@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { SEOHead } from "../components/SEOHead";
 import { ExportableLogo } from "../components/ExportableLogo";
 import MattixLogo from "../components/MattixLogo";
 import {
@@ -110,7 +111,9 @@ npm run dev`,
   };
 
   return (
-    <div className="docs-page">
+    <>
+      <SEOHead pageKey="docs" />
+      <div className="docs-page">
       {/* Header */}
       <header className="docs-header">
         <div className="header-content">
@@ -605,6 +608,7 @@ npm run dev`,
         </main>
       </div>
     </div>
+    </>
   );
 };
 

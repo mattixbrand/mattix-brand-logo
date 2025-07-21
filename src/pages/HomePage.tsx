@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MattixLogo from "../components/MattixLogo";
 import { ExportableLogo } from "../components/ExportableLogo";
+import { SEOHead } from "../components/SEOHead";
 import {
   RiSparklingLine,
   RiSpeedLine,
@@ -16,7 +17,9 @@ const HomePage: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="home-page">
+    <>
+      <SEOHead pageKey="home" />
+      <div className="home-page">
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
@@ -313,6 +316,7 @@ const HomePage: React.FC = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 

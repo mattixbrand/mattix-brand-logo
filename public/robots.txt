@@ -1,0 +1,35 @@
+# Robots.txt for Mattix Brand Logo - Enterprise SEO Configuration
+
+User-agent: *
+Allow: /
+
+# Priority crawling for main content
+Allow: /logo
+Allow: /generator
+Allow: /colors
+Allow: /docs
+Allow: /about
+Allow: /brand-guidelines
+Allow: /download
+
+# Block unnecessary resources from crawling
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.test.*
+Disallow: /test/
+Disallow: /.vscode/
+Disallow: /coverage/
+
+# Allow important assets
+Allow: /public/
+Allow: /*.ico
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.css
+Allow: /*.js
+
+# Sitemap location
+Sitemap: https://mattixbrand.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

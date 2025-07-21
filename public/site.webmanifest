@@ -1,0 +1,97 @@
+{
+  "name": "Mattix Brand Logo - Professional Brand Identity",
+  "short_name": "Mattix Brand",
+  "description": "Professional brand identity and logo design system with scalable vector graphics and brand guidelines",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#4FACFE",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["business", "design", "productivity"],
+  "icons": [
+    {
+      "src": "/mattix-logo-small.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/mattix-icons-small.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/mattix-logo-medium.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/mattix-logo-medium.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Logo Generator",
+      "short_name": "Generator",
+      "description": "Create custom logo variations",
+      "url": "/generator",
+      "icons": [
+        {
+          "src": "/mattix-logo-small.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Download Assets",
+      "short_name": "Download",
+      "description": "Download brand assets",
+      "url": "/download",
+      "icons": [
+        {
+          "src": "/mattix-logo-small.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Brand Guidelines",
+      "short_name": "Guidelines",
+      "description": "View brand guidelines",
+      "url": "/brand-guidelines",
+      "icons": [
+        {
+          "src": "/mattix-logo-small.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Mattix Brand Logo showcase on desktop"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Mattix Brand Logo generator on mobile"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
