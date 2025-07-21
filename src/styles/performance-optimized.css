@@ -1,0 +1,246 @@
+/* GPU-Accelerated Performance Optimizations */
+
+/* Enable GPU acceleration for frequently animated elements */
+.morphing-logo,
+.loading-text,
+.btn,
+.hero-mattix-logo,
+.static-logo-item {
+  /* Force GPU layer creation */
+  will-change: transform, opacity, filter;
+  transform: translate3d(0, 0, 0); /* Force 3D context */
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimized logo container with GPU acceleration */
+.logo-container {
+  position: relative;
+  width: 280px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.morphing-logo {
+  width: 100%;
+  height: 100%;
+  /* Replace heavy drop-shadow with optimized box-shadow */
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, box-shadow;
+}
+
+.morphing-logo:hover {
+  box-shadow: 0 0 30px rgba(79, 172, 254, 0.8);
+  transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
+}
+
+/* Optimized snake animation using GPU-accelerated properties */
+.morphing-logo #unifiedSnake {
+  /* Use opacity and transform instead of filter for better performance */
+  animation: unifiedSnakeGlowOptimized 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes unifiedSnakeGlowOptimized {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale3d(1.02, 1.02, 1);
+  }
+}
+
+/* Optimized text glow using box-shadow instead of filter */
+.morphing-logo text {
+  /* Replace drop-shadow with text-shadow for better performance */
+  text-shadow: 
+    0 0 3px rgba(255, 255, 255, 0.2),
+    0 0 6px rgba(79, 172, 254, 0.2),
+    0 0 9px rgba(79, 172, 254, 0.1);
+  animation: textGlowOptimized 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: text-shadow;
+}
+
+@keyframes textGlowOptimized {
+  0%, 100% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.2),
+      0 0 6px rgba(79, 172, 254, 0.2);
+  }
+  50% {
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.3),
+      0 0 8px rgba(79, 172, 254, 0.3),
+      0 0 12px rgba(79, 172, 254, 0.2);
+  }
+}
+
+/* Optimized loading text with GPU acceleration */
+.loading-text {
+  font-size: 48px;
+  font-weight: 900;
+  background: var(
+    --mattix-spectrum,
+    linear-gradient(45deg, #4facfe 0%, #667eea 50%, #764ba2 100%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Replace filter with box-shadow */
+  text-shadow: 0 0 7px rgba(79, 172, 254, 0.35);
+  animation: snakeLoadingPulseOptimized 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              text-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, text-shadow;
+}
+
+.loading-text:hover {
+  text-shadow: 0 0 14px rgba(79, 172, 254, 0.56);
+  transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1);
+  animation-duration: 1.5s;
+}
+
+/* Optimized loading animation using only transform and opacity */
+@keyframes snakeLoadingPulseOptimized {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate3d(0, 0, 1, 0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotate3d(0, 0, 1, 90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotate3d(0, 0, 1, 180deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotate3d(0, 0, 1, 270deg);
+    opacity: 0.8;
+  }
+}
+
+/* Optimized button styles */
+.btn {
+  padding: 12px 24px;
+  background: rgba(79, 172, 254, 0.2);
+  border: 1px solid rgba(79, 172, 254, 0.5);
+  border-radius: 25px;
+  color: #4facfe;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Optimized backdrop filter */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, background-color, box-shadow;
+}
+
+.btn:hover {
+  background: rgba(79, 172, 254, 0.3);
+  transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+}
+
+/* Optimized static logo items */
+.static-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(79, 172, 254, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+  border-radius: 15px;
+  /* Optimize backdrop filter for better performance */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.static-logo-item:hover {
+  transform: translate3d(0, 0, 0) scale3d(1.02, 1.02, 1);
+}
+
+/* Optimized text gradients */
+.static-mattix-text,
+.static-loading-text {
+  /* Use hardware-accelerated gradients */
+  background: linear-gradient(
+    45deg,
+    #4facfe 0%,
+    #00f2fe 25%,
+    #667eea 50%,
+    #764ba2 75%,
+    #f093fb 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  /* Replace filter with text-shadow */
+  text-shadow: 0 0 10px rgba(79, 172, 254, 0.6);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+/* Performance optimization for animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize for high DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .morphing-logo,
+  .loading-text {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Container queries optimization for modern browsers */
+@supports (container-type: inline-size) {
+  .logo-container {
+    container-type: inline-size;
+  }
+}
+
+/* CSS containment for better performance */
+.logo-container,
+.loading-container,
+.static-logo-item {
+  contain: layout style paint;
+}

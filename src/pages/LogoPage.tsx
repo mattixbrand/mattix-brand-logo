@@ -126,45 +126,61 @@ export default LoadingComponent;`;
   };
 
   return (
-    <div className="app">
-      <h1
-        style={{
-          color: "white",
-          textAlign: "center",
-          fontSize: "32px",
-          margin: "20px",
-        }}
-      >
-        MATTIX LOGO APP
-      </h1>
+    <div className="app logo-page-optimized gpu-accelerated">
+      {/* Modern header with clean typography */}
+      <header className="page-header">
+        <h1 className="page-title gpu-accelerated">
+          MATTIX LOGO APP
+        </h1>
+        <p className="page-subtitle">
+          Modern React logo components with smooth animations
+        </p>
+      </header>
 
       {/* MAIN LOGO SECTION */}
-      <div className="main-logo-section">
+      <section className="main-logo-section gpu-accelerated">
         <div className="section-title">MATTIX Logo Animation</div>
 
-        <div className="logo-container">
-          <MattixLogo
-            animated={true}
-            size={280}
-            className="morphing-logo"
-            data-testid="main-logo"
-          />
+        <div className="logo-showcase">
+          <div className="logo-container">
+            <MattixLogo
+              animated={true}
+              size={280}
+              className="morphing-logo"
+              data-testid="main-logo"
+            />
+          </div>
+          
+          <div className="logo-features">
+            <div className="feature-item">
+              <span className="feature-icon">⚡</span>
+              <span className="feature-text">GPU Accelerated</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">📱</span>
+              <span className="feature-text">Responsive Design</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">🎨</span>
+              <span className="feature-text">Modern Animations</span>
+            </div>
+          </div>
         </div>
 
-        <div className="controls">
+        <div className="controls modern-controls">
           <button
-            className="btn primary"
+            className="btn primary btn-gpu"
             onClick={() => setShowStaticVersion(true)}
           >
-            Capture MATTIX Logo
+            <span className="btn-text">Capture MATTIX Logo</span>
           </button>
           <button
-            className="btn copy-btn"
+            className="btn btn-gpu"
             onClick={(e) => handleCopyCode("logo", e)}
             title="Copy React Logo code to clipboard"
           >
             <RiFileCopyLine size={16} />
-            Copy React Code
+            <span className="btn-text">Copy React Code</span>
           </button>
           <DownloadManager type="logo" />
         </div>
@@ -172,25 +188,29 @@ export default LoadingComponent;`;
         {showCodePreview && codePreviewType === "logo" && (
           <CodePreview type="logo" />
         )}
-      </div>
+      </section>
 
       {/* LOADING SYMBOL SECTION */}
-      <div className="loading-section">
+      <section className="loading-section gpu-accelerated">
         <div className="section-title">Loading Component</div>
-        <div className="loading-container">
-          <InfinityLoader data-testid="infinity-loader" />
+        
+        <div className="loading-showcase">
+          <div className="loading-container">
+            <InfinityLoader data-testid="infinity-loader" />
+          </div>
+          <div className="loading-description">
+            Perfect for loading states and smooth transitions in modern web applications
+          </div>
         </div>
-        <div className="loading-description">
-          Perfect for loading states and transitions
-        </div>
-        <div className="controls">
+
+        <div className="controls modern-controls">
           <button
-            className="btn copy-btn"
+            className="btn btn-gpu"
             onClick={(e) => handleCopyCode("loading", e)}
             title="Copy Loading Component code to clipboard"
           >
             <RiFileCopyLine size={16} />
-            Copy Loading Code
+            <span className="btn-text">Copy Loading Code</span>
           </button>
           <DownloadManager type="loading" />
         </div>
@@ -198,28 +218,28 @@ export default LoadingComponent;`;
         {showCodePreview && codePreviewType === "loading" && (
           <CodePreview type="loading" />
         )}
-      </div>
+      </section>
 
       {/* Static Version Modal */}
       {showStaticVersion && (
         <StaticVersionModal onClose={() => setShowStaticVersion(false)} />
       )}
 
-      {/* Toast Notifications */}
-      <div className="toast-container">
+      {/* Modern Toast Notifications */}
+      <div className="toast-container gpu-accelerated">
         {toasts.map((toast) => (
           <div
             key={toast.id}
-            className={`toast toast-${toast.type}`}
+            className={`toast toast-${toast.type} gpu-accelerated`}
             onClick={() => removeToast(toast.id)}
           >
             <div className="toast-content">
               {toast.type === "success" ? (
-                <RiCheckLine size={18} />
+                <RiCheckLine size={18} className="toast-icon" />
               ) : (
-                <RiErrorWarningLine size={18} />
+                <RiErrorWarningLine size={18} className="toast-icon" />
               )}
-              <span>{toast.message}</span>
+              <span className="toast-message">{toast.message}</span>
             </div>
           </div>
         ))}

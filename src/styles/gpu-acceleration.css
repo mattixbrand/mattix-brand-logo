@@ -1,0 +1,281 @@
+/* Advanced GPU Acceleration and Performance Optimizations */
+
+/* Global performance settings */
+* {
+  /* Enable subpixel antialiasing */
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* Force GPU acceleration for the entire page */
+body {
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  /* Optimize rendering */
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  /* Enable hardware acceleration */
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* Optimize scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* CSS Variables for consistent performance settings */
+:root {
+  /* Optimized easing functions */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* GPU-optimized shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-large: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  
+  /* Performance optimized colors */
+  --mattix-blue: #4facfe;
+  --mattix-cyan: #00f2fe;
+  --mattix-purple: #667eea;
+  --mattix-glow: rgba(79, 172, 254, 0.4);
+}
+
+/* High-performance animation classes */
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.smooth-animation {
+  animation-timing-function: var(--ease-out-quart);
+  animation-fill-mode: both;
+}
+
+/* Optimized glow effects using box-shadow instead of filter */
+.glow-effect {
+  box-shadow: 
+    0 0 5px var(--mattix-glow),
+    0 0 10px var(--mattix-glow),
+    0 0 15px var(--mattix-glow);
+  transition: box-shadow 0.3s var(--ease-out-quart);
+}
+
+.glow-effect:hover {
+  box-shadow: 
+    0 0 8px var(--mattix-glow),
+    0 0 16px var(--mattix-glow),
+    0 0 24px var(--mattix-glow),
+    0 0 32px rgba(79, 172, 254, 0.2);
+}
+
+/* GPU-accelerated pulse animation */
+@keyframes pulseGPU {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
+    opacity: 0.8;
+  }
+}
+
+/* GPU-accelerated rotation animation */
+@keyframes rotateGPU {
+  from {
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 360deg);
+  }
+}
+
+/* GPU-accelerated float animation */
+@keyframes floatGPU {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+/* Optimized loading spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(79, 172, 254, 0.3);
+  border-top: 3px solid var(--mattix-blue);
+  border-radius: 50%;
+  animation: rotateGPU 1s linear infinite;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  contain: strict;
+}
+
+/* High-performance button with GPU acceleration */
+.btn-gpu {
+  position: relative;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--mattix-blue), var(--mattix-cyan));
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: transform 0.3s var(--ease-out-back);
+  contain: layout style paint;
+}
+
+.btn-gpu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.5s var(--ease-out-quart);
+  transform: translate3d(0, 0, 0);
+}
+
+.btn-gpu:hover {
+  transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
+}
+
+.btn-gpu:hover::before {
+  left: 100%;
+}
+
+/* Optimized parallax effect */
+.parallax-gpu {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Performance-optimized backdrop blur */
+.backdrop-blur-gpu {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* Fallback for unsupported browsers */
+  background: rgba(0, 0, 0, 0.1);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: backdrop-filter;
+  contain: layout style;
+}
+
+/* Optimized gradient text */
+.gradient-text-gpu {
+  background: linear-gradient(45deg, 
+    var(--mattix-blue), 
+    var(--mattix-cyan), 
+    var(--mattix-purple)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* GPU acceleration for text */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Memory-efficient animations */
+.efficient-fade {
+  animation: fadeInOut 2s var(--ease-out-quart) infinite;
+  will-change: opacity;
+  contain: layout;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Optimized morphing animation */
+.morph-gpu {
+  animation: morphShapeGPU 4s var(--ease-out-quart) infinite;
+  transform-origin: center;
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout;
+}
+
+@keyframes morphShapeGPU {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate3d(0, 0, 1, 0deg);
+    border-radius: 50%;
+  }
+  25% {
+    transform: translate3d(0, 0, 0) scale3d(1.1, 0.9, 1) rotate3d(0, 0, 1, 90deg);
+    border-radius: 25%;
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale3d(0.9, 1.1, 1) rotate3d(0, 0, 1, 180deg);
+    border-radius: 15%;
+  }
+  75% {
+    transform: translate3d(0, 0, 0) scale3d(1.1, 0.9, 1) rotate3d(0, 0, 1, 270deg);
+    border-radius: 35%;
+  }
+}
+
+/* Device-specific optimizations */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile for better performance */
+  .gpu-accelerated,
+  .morphing-logo,
+  .loading-text {
+    animation-duration: 2s;
+  }
+  
+  /* Simplify effects on mobile */
+  .glow-effect {
+    box-shadow: 0 0 10px var(--mattix-glow);
+  }
+}
+
+/* High refresh rate display optimization */
+@media (min-resolution: 120dpi) {
+  .smooth-animation {
+    animation-timing-function: linear;
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  .gpu-accelerated {
+    /* Optimize for dark backgrounds */
+    backface-visibility: hidden;
+  }
+}
+
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+  .gpu-accelerated,
+  .morphing-logo,
+  .loading-text,
+  .btn-gpu {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .glow-effect {
+    box-shadow: none !important;
+  }
+}

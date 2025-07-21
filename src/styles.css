@@ -14,6 +14,15 @@ body {
   overflow-x: hidden;
   gap: 80px;
   padding: 40px 20px;
+  /* GPU acceleration for the entire page */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* Optimize font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Optimize scrolling performance */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* MAIN LOGO SECTION */
@@ -40,56 +49,74 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  contain: layout style paint;
 }
 
 .morphing-logo {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.4));
-  transition: all 0.3s ease;
+  /* Replace heavy drop-shadow with optimized box-shadow */
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
 }
 
 .morphing-logo:hover {
-  filter: drop-shadow(0 0 30px rgba(79, 172, 254, 0.8));
-  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(79, 172, 254, 0.8);
+  transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
 }
 
-/* Enhanced unified snake animation */
+/* Enhanced unified snake animation - GPU optimized */
 .morphing-logo #unifiedSnake {
-  animation: unifiedSnakeGlow 3s ease-in-out infinite;
+  animation: unifiedSnakeGlowOptimized 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: opacity, transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .morphing-logo:hover #unifiedSnake {
   stroke-width: 10;
 }
 
-@keyframes unifiedSnakeGlow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+@keyframes unifiedSnakeGlowOptimized {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   50% {
-    filter: drop-shadow(0 0 24px rgba(0, 242, 254, 1));
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1.02, 1.02, 1);
   }
 }
 
-/* Subtle text glow effect for ATTIX text */
+/* Optimized text glow effect for ATTIX text - GPU friendly */
 .morphing-logo text {
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.2))
-    drop-shadow(0 0 6px rgba(79, 172, 254, 0.2));
-  animation: textGlow 3s ease-in-out infinite;
+  text-shadow: 
+    0 0 3px rgba(255, 255, 255, 0.2),
+    0 0 6px rgba(79, 172, 254, 0.2);
+  animation: textGlowOptimized 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: text-shadow;
+  transform: translate3d(0, 0, 0);
 }
 
-@keyframes textGlow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.2))
-      drop-shadow(0 0 6px rgba(79, 172, 254, 0.2));
+@keyframes textGlowOptimized {
+  0%, 100% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.2),
+      0 0 6px rgba(79, 172, 254, 0.2);
   }
   50% {
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3))
-      drop-shadow(0 0 8px rgba(79, 172, 254, 0.3));
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.3),
+      0 0 8px rgba(79, 172, 254, 0.3),
+      0 0 12px rgba(79, 172, 254, 0.2);
   }
 }
 
@@ -137,35 +164,39 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 7px rgba(79, 172, 254, 0.35));
-  animation: snakeLoadingPulse 3s ease-in-out infinite;
+  text-shadow: 0 0 7px rgba(79, 172, 254, 0.35);
+  animation: snakeLoadingPulseOptimized 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              text-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, text-shadow;
+  backface-visibility: hidden;
 }
 
 .loading-text:hover {
-  filter: drop-shadow(0 0 14px rgba(79, 172, 254, 0.56));
-  transform: scale(1.1);
+  text-shadow: 0 0 14px rgba(79, 172, 254, 0.56);
+  transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1);
   animation-duration: 1.5s;
 }
 
-/* Enhanced loading pulse with snake-like movement */
-@keyframes snakeLoadingPulse {
-  0%,
-  100% {
-    transform: scale(1) rotate(0deg);
+/* GPU-optimized loading pulse with snake-like movement */
+@keyframes snakeLoadingPulseOptimized {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate3d(0, 0, 1, 0deg);
     opacity: 1;
   }
   25% {
-    transform: scale(1.1) rotate(90deg);
+    transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotate3d(0, 0, 1, 90deg);
     opacity: 0.8;
   }
   50% {
-    transform: scale(1.2) rotate(180deg);
+    transform: translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotate3d(0, 0, 1, 180deg);
     opacity: 0.6;
   }
   75% {
-    transform: scale(1.1) rotate(270deg);
+    transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1) rotate3d(0, 0, 1, 270deg);
     opacity: 0.8;
   }
 }
@@ -188,13 +219,21 @@ body {
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, background-color, box-shadow;
+  backface-visibility: hidden;
+  contain: layout style;
 }
 
 .btn:hover {
   background: rgba(79, 172, 254, 0.3);
-  transform: scale(1.05);
+  transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
   box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
 }
 
@@ -302,7 +341,7 @@ body {
   overflow-x: auto;
 }
 
-/* React App Styles */
+/* React App Styles - GPU Optimized */
 .app {
   display: flex;
   flex-direction: column;
@@ -310,6 +349,24 @@ body {
   gap: 60px;
   min-height: 100vh;
   padding: 40px 20px;
+  
+  /* GPU acceleration for the entire app */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  
+  /* Optimize for performance */
+  contain: layout style;
+  isolation: isolate;
+  
+  /* Ensure smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  
+  /* Default fallback background (will be overridden by page-specific styles) */
+  background: inherit;
+  position: relative;
+  z-index: 1;
 }
 
 /* Static Version Modal */
@@ -513,7 +570,7 @@ body {
   box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
 }
 
-/* Toast Notification System */
+/* Toast Notification System - GPU Optimized */
 .toast-container {
   position: fixed;
   top: 20px;
@@ -523,26 +580,37 @@ body {
   flex-direction: column;
   gap: 10px;
   pointer-events: none;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  contain: layout;
 }
 
 .toast {
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 12px;
   padding: 16px 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transform: translateX(350px);
-  animation: slideInToast 0.3s ease-out forwards;
+  /* GPU-accelerated transform */
+  transform: translate3d(350px, 0, 0);
+  animation: slideInToastOptimized 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   pointer-events: auto;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 280px;
   max-width: 400px;
+  /* GPU acceleration */
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .toast:hover {
-  transform: translateX(0) scale(1.02);
+  transform: translate3d(0, 0, 0) scale3d(1.02, 1.02, 1);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -571,6 +639,9 @@ body {
   font-size: 14px;
   font-weight: 500;
   color: white;
+  /* GPU acceleration for content */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .toast-success .toast-content {
@@ -581,13 +652,13 @@ body {
   color: #ff6b6b;
 }
 
-@keyframes slideInToast {
+@keyframes slideInToastOptimized {
   from {
-    transform: translateX(350px);
+    transform: translate3d(350px, 0, 0);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }
@@ -630,17 +701,25 @@ body:has(.app) {
 .loading-section {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, background, box-shadow;
+  backface-visibility: hidden;
+  contain: layout style;
 }
 
 .main-logo-section:hover,
 .loading-section:hover {
   background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-5px);
+  transform: translate3d(0, -5px, 0);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
 }
 
@@ -655,16 +734,17 @@ body:has(.app) {
   .toast {
     min-width: auto;
     max-width: none;
-    transform: translateY(-50px);
+    /* GPU-accelerated mobile transform */
+    transform: translate3d(0, -50px, 0);
   }
 
-  @keyframes slideInToast {
+  @keyframes slideInToastOptimized {
     from {
-      transform: translateY(-50px);
+      transform: translate3d(0, -50px, 0);
       opacity: 0;
     }
     to {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
       opacity: 1;
     }
   }
